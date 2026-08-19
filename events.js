@@ -1,4 +1,4 @@
-// HYNA premium page interactions
+// HYGEN premium page interactions
 (function(){
   const nav=document.querySelector('.navbar');
   const toggle=document.querySelector('.mobile-toggle');

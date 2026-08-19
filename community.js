@@ -1,4 +1,4 @@
-// Hyna learnHub premium page interactions
+// Hygen Community premium page interactions
 (function(){
   const nav=document.querySelector('.navbar');
   const toggle=document.querySelector('.mobile-toggle');

@@ -1,5 +1,5 @@
 // ======================================
-// HYNA HACKATHON JS
+// HYGEN HACKATHON JS
 // ======================================
 
 // Form
@@ -69,7 +69,7 @@ form.addEventListener("submit", function (e) {
         `;
 
         createPopup(
-            "Welcome to Hyna Hackathon 2026 🚀"
+            "Welcome to Hygen Hackathon 2026 🚀"
         );
 
         form.reset();
