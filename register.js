@@ -47,7 +47,7 @@ form.addEventListener("submit", async function (e) {
     };
 
     const emailData = {
-        _subject: `New HYNA Registration - ${data.fullName}`,
+        _subject: `New HYGEN Registration - ${data.fullName}`,
         name: data.fullName,
         email: data.email,
         phone: data.phone,

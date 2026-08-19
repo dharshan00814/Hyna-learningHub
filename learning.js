@@ -76,4 +76,57 @@
     const y=(e.clientY/window.innerHeight-.5)*18;
     parallax.forEach((el,i)=>{el.style.translate=`${x/(i+1)}px ${y/(i+1)}px`;});
   },{passive:true});
+
+  // Dynamic Course Video Modal Logic
+  const videoModal = document.getElementById('courseVideoModal');
+  const closeVideoBtn = document.getElementById('closeCourseVideo');
+  const videoIframe = document.getElementById('courseVideoIframe');
+  const videoModalTag = document.getElementById('videoModalTag');
+  const videoModalTitle = document.getElementById('videoModalTitle');
+
+  function openVideoModal(videoUrl, tag, title) {
+    if (!videoModal || !videoIframe) return;
+    if (videoModalTag && tag) videoModalTag.textContent = tag;
+    if (videoModalTitle && title) videoModalTitle.textContent = title;
+    videoIframe.src = videoUrl;
+    videoModal.classList.add('active');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    if (!videoModal || !videoIframe) return;
+    videoModal.classList.remove('active');
+    videoModal.setAttribute('aria-hidden', 'true');
+    videoIframe.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.enroll-course-btn, #enrollFullStackBtn').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const videoUrl = btn.getAttribute('data-video') || btn.dataset.video || '';
+      const tag = btn.getAttribute('data-tag') || 'Course Track';
+      const title = btn.getAttribute('data-title') || 'Course Session & Overview';
+      if (videoUrl) {
+        openVideoModal(videoUrl, tag, title);
+      }
+    });
+  });
+
+  if (closeVideoBtn) {
+    closeVideoBtn.addEventListener('click', closeVideoModal);
+  }
+
+  if (videoModal) {
+    videoModal.addEventListener('click', (e) => {
+      if (e.target === videoModal) closeVideoModal();
+    });
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
+      closeVideoModal();
+    }
+  });
 })();
