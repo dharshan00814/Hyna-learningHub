@@ -1,4 +1,4 @@
-// HYGEN premium page interactions
+// Hygenz LearnHub premium page interactions
 (function(){
   const nav=document.querySelector('.navbar');
   const toggle=document.querySelector('.mobile-toggle');

@@ -1,5 +1,5 @@
 // ======================================
-// HYGEN HACKATHON JS
+// Hygenz LearnHub HACKATHON JS
 // ======================================
 
 // Form

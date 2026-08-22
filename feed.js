@@ -26,7 +26,7 @@ form.addEventListener("submit", async function (event) {
     };
 
     const emailData = {
-        _subject: `New HYGEN Feedback - ${formData.name}`,
+        _subject: `New Hygenz LearnHub Feedback - ${formData.name}`,
         name: formData.name,
         email: formData.email,
         session: formData.session,
