@@ -77,56 +77,71 @@
     parallax.forEach((el,i)=>{el.style.translate=`${x/(i+1)}px ${y/(i+1)}px`;});
   },{passive:true});
 
-  // Dynamic Course Video Modal Logic
-  const videoModal = document.getElementById('courseVideoModal');
-  const closeVideoBtn = document.getElementById('closeCourseVideo');
-  const videoIframe = document.getElementById('courseVideoIframe');
-  const videoModalTag = document.getElementById('videoModalTag');
-  const videoModalTitle = document.getElementById('videoModalTitle');
+  // Load Internships from Supabase
+  const internshipsList = document.getElementById('internshipsList');
+  const loadingInternships = document.getElementById('loadingInternships');
 
-  function openVideoModal(videoUrl, tag, title) {
-    if (!videoModal || !videoIframe) return;
-    if (videoModalTag && tag) videoModalTag.textContent = tag;
-    if (videoModalTitle && title) videoModalTitle.textContent = title;
-    videoIframe.src = videoUrl;
-    videoModal.classList.add('active');
-    videoModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
+  async function loadInternships() {
+    if (!internshipsList || !window.hynaSupabase) return;
 
-  function closeVideoModal() {
-    if (!videoModal || !videoIframe) return;
-    videoModal.classList.remove('active');
-    videoModal.setAttribute('aria-hidden', 'true');
-    videoIframe.src = '';
-    document.body.style.overflow = '';
-  }
+    try {
+      const { data: programs, error } = await window.hynaSupabase
+        .from('internship_programs')
+        .select('*')
+        .eq('published', true)
+        .order('created_at', { ascending: false });
 
-  document.querySelectorAll('.enroll-course-btn, #enrollFullStackBtn').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const videoUrl = btn.getAttribute('data-video') || btn.dataset.video || '';
-      const tag = btn.getAttribute('data-tag') || 'Course Track';
-      const title = btn.getAttribute('data-title') || 'Course Session & Overview';
-      if (videoUrl) {
-        openVideoModal(videoUrl, tag, title);
+      if (error) {
+        throw error;
       }
-    });
-  });
 
-  if (closeVideoBtn) {
-    closeVideoBtn.addEventListener('click', closeVideoModal);
-  }
+      if (!programs || programs.length === 0) {
+        internshipsList.innerHTML = '<p class="muted">No internships are currently open. Please check back later.</p>';
+        return;
+      }
 
-  if (videoModal) {
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) closeVideoModal();
-    });
-  }
+      internshipsList.innerHTML = ''; // Clear loading
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
-      closeVideoModal();
+      programs.forEach((program, i) => {
+        const article = document.createElement('article');
+        article.className = 'glass-card reveal';
+        article.style.transitionDelay = `${Math.min(i % 6 * 70, 350)}ms`;
+        
+        let tagsHtml = '';
+        if (program.experience_level) tagsHtml += `<span class="tag">${program.experience_level}</span>`;
+        if (program.duration) tagsHtml += `<span class="tag">${program.duration}</span>`;
+        if (program.mode) tagsHtml += `<span class="tag">${program.mode}</span>`;
+        
+        const skillsList = program.skills && program.skills.length > 0 
+          ? `<p class="muted" style="font-size:0.8rem; margin:10px 0;">Skills: ${program.skills.join(', ')}</p>` 
+          : '';
+
+        article.innerHTML = `
+          <div class="card-body">
+            <h3 style="margin-bottom:8px;">${program.title}</h3>
+            <p class="muted" style="font-size:0.9rem; line-height:1.4;">${program.short_description || ''}</p>
+            ${skillsList}
+            <div class="meta" style="margin-top:15px; margin-bottom:20px;">
+              ${tagsHtml}
+            </div>
+            <a class="btn btn-ghost" href="internship-details.html?slug=${program.slug}" style="width:100%; text-align:center;">View Internship</a>
+          </div>
+        `;
+        internshipsList.appendChild(article);
+        
+        // Setup observer for new cards
+        const revealObserver=new IntersectionObserver((entries)=>{
+          entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');revealObserver.unobserve(entry.target);}});
+        },{threshold:.16,rootMargin:'0px 0px -40px 0px'});
+        revealObserver.observe(article);
+      });
+
+    } catch (err) {
+      console.error('Error loading internships:', err);
+      internshipsList.innerHTML = '<p class="muted" style="color:var(--danger)">Failed to load internships. Please try again later.</p>';
     }
-  });
+  }
+
+  // Initial load
+  loadInternships();
 })();

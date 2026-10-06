@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Internship Details">
+  <title>Internship Details | Hyna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="internships.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <style>
+    .details-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .details-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 30px;
+    }
+    .details-title {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .details-meta {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .details-section {
+      margin-bottom: 40px;
+    }
+    .details-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .details-section p, .details-section li {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .details-section ul {
+      padding-left: 20px;
+    }
+    .apply-cta-container {
+      margin-top: 50px;
+      text-align: center;
+      padding: 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg"></div><div class="stars"></div><div class="grid-overlay"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+  <header class="header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="index.html" class="nav-logo" aria-label="Hyna Internship Portal home">
+        <img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal Logo" loading="eager">
+        <div class="logo-text"><span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="nav-active" href="internships.html">Internships</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+      <button class="mobile-toggle" aria-label="Toggle menu"><span></span></button>
+    </nav>
+  </header>
+
+  <main style="padding-top: 80px;">
+    <div class="details-container" id="detailsContainer">
+      <div id="loadingDetails">
+        <p class="muted">Loading internship details...</p>
+      </div>
+      <div id="errorDetails" style="display: none;">
+        <p class="muted" style="color:var(--danger)">Internship not found or failed to load.</p>
+        <a href="internships.html" class="btn btn-ghost" style="margin-top:20px;">Back to Internships</a>
+      </div>
+      <div id="internshipContent" style="display: none;">
+        <div class="details-header">
+          <div class="eyebrow" id="internCategory">Category</div>
+          <h1 class="details-title" id="internTitle">Internship Title</h1>
+          <div class="details-meta" id="internMeta">
+            <!-- Tags will be injected here -->
+          </div>
+          <p class="hero-sub" id="internShortDesc" style="font-size: 1.1rem;">Short description goes here.</p>
+        </div>
+
+        <div class="details-section">
+          <h3>About this Internship</h3>
+          <p id="internDesc">Detailed description.</p>
+        </div>
+
+        <div class="details-section">
+          <h3>Responsibilities</h3>
+          <p id="internResp">Responsibilities text.</p>
+        </div>
+
+        <div class="details-section">
+          <h3>What You'll Learn</h3>
+          <p id="internLearning">Learning outcomes.</p>
+        </div>
+
+        <div class="details-section">
+          <h3>Eligibility</h3>
+          <p id="internEligibility">Eligibility criteria.</p>
+        </div>
+
+        <div class="apply-cta-container">
+          <h3 style="margin-bottom:10px;">Ready to start your journey?</h3>
+          <p class="muted" style="margin-bottom:20px;">Join our team and work on impactful real-world projects.</p>
+          <a class="btn btn-primary" href="apply.html" id="applyBtn">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="footer-brand-row"><img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal logo" loading="lazy"><div class="logo-text"><span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span></div></div><p class="footer-tagline">India's student innovation network for learning, mentorship, and real-world building.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="internships.html">Internships</a></li><li><a href="about.html">About</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="internships.html">All Internships</a></li><li><a href="apply.html">Apply Now</a></li><li><a href="application-status.html">Track Application</a></li></ul></div><div class="footer-col"><h4>Connect</h4><ul><li><a href="contact.html">Contact Us</a></li></ul><div class="footer-social"><a href="#" aria-label="Discord">D</a><a href="#" aria-label="Instagram">I</a><a href="#" aria-label="LinkedIn">in</a></div></div></div><div class="footer-bottom"><span>© 2026 Hyna Internship Portal. All rights reserved.</span><span>Build • Learn • Innovate</span></div></div></footer>
+  <script src="internships.js" defer></script>
+  <script src="internship-details.js" defer></script>
+</body>
+</html>

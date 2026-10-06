@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore open internship programs at Hyna and start your career.">
+  <title>Internships | Hyna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="internships.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+</head>
+<body>
+  <div class="page-bg"></div><div class="stars"></div><div class="grid-overlay"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+  <header class="header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="index.html" class="nav-logo" aria-label="Hyna Internship Portal home">
+        <img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal Logo" loading="eager">
+        <div class="logo-text"><span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span><span class="logo-sub">by Hyna</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="nav-active" href="internships.html">Internships</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+      <button class="mobile-toggle" aria-label="Toggle menu"><span></span></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal fade-left">
+          <div class="eyebrow">Internship Programs</div>
+          <h1>Gain real experience with <span class="gradient-text">industry projects</span>.</h1>
+          <p class="hero-sub">Master web, AI, cloud, and app development through guided internship programs. Build a real portfolio that speaks for you.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#internshipsListContainer">Explore Open Internships</a></div>
+        </div>
+        <div class="hero-visual reveal fade-right" aria-label="Floating 3D learning illustration">
+          <div class="visual-core"><svg viewBox="0 0 24 24" fill="none"><path d="M4 19.5V5.8A2.8 2.8 0 0 1 6.8 3H20v14H6.8A2.8 2.8 0 0 0 4 19.8Z" stroke="currentColor" stroke-width="1.7"/><path d="M7 7h9M7 11h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+          <div class="floating-card float-a"><svg viewBox="0 0 24 24" fill="none"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="floating-card float-b"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="floating-card float-c"><svg viewBox="0 0 24 24" fill="none"><path d="M4 17.5 10 6l4 8 2-3.5 4 7H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categories"><div class="container"><div class="section-head"><div class="eyebrow">Internship Categories</div><h2>Find your domain.</h2><p>Explore opportunities in various technology pathways.</p></div><div class="grid grid-4">
+      <article class="glass-card"><div class="card-body"><div class="icon">🌐</div><h3>Web Development</h3><p class="muted">HTML, CSS, JavaScript, APIs, responsive UI, and deployment.</p></div></article>
+      <article class="glass-card"><div class="card-body"><div class="icon">🐍</div><h3>Python</h3><p class="muted">Programming fundamentals, automation, data handling, and scripting.</p></div></article>
+      <article class="glass-card"><div class="card-body"><div class="icon">🤖</div><h3>Artificial Intelligence</h3><p class="muted">Prompting, ML basics, model workflows, and AI project building.</p></div></article>
+      <article class="glass-card"><div class="card-body"><div class="icon">🎨</div><h3>UI/UX</h3><p class="muted">Research, wireframes, design systems, prototyping, and usability.</p></div></article>
+      <article class="glass-card"><div class="card-body"><div class="icon">☁️</div><h3>Cloud Computing</h3><p class="muted">Cloud basics, hosting, serverless ideas, storage, and DevOps flow.</p></div></article>
+      <article class="glass-card"><div class="card-body"><div class="icon">🛡️</div><h3>Cyber Security</h3><p class="muted">Security fundamentals, web safety, ethical hacking, and defense.</p></div></article>
+      <article class="glass-card"><div class="card-body"><div class="icon">📊</div><h3>Data Science</h3><p class="muted">Data analysis, visualization, Python notebooks, and insights.</p></div></article>
+      <article class="glass-card"><div class="card-body"><div class="icon">📱</div><h3>App Development</h3><p class="muted">Mobile UI, app logic, backend integration, and publishing basics.</p></div></article>
+    </div></div></section>
+
+    <section class="section" id="roadmap"><div class="container"><div class="section-head"><div class="eyebrow">Internship Process</div><h2>From application to offer.</h2><p>A simple process that gets you started on real projects.</p></div><div class="timeline">
+      <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-content glass-card"><div class="card-body"><h3>Beginner</h3><p class="muted">Start with orientation, tools, mindset, and basic digital fluency.</p></div></div></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-content glass-card"><div class="card-body"><h3>Fundamentals</h3><p class="muted">Learn core concepts with mentor-backed practice and clean notes.</p></div></div></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-content glass-card"><div class="card-body"><h3>Mini Projects</h3><p class="muted">Build small useful projects to convert theory into confidence.</p></div></div></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-content glass-card"><div class="card-body"><h3>Hackathons</h3><p class="muted">Collaborate under deadlines and learn real product thinking.</p></div></div></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-content glass-card"><div class="card-body"><h3>Internship</h3><p class="muted">Shape your portfolio, communication, GitHub, and work habits.</p></div></div></div>
+      
+    </div></div></section>
+
+    <section class="section" id="internshipsListContainer"><div class="container"><div class="section-head"><div class="eyebrow">Open Internships</div><h2>Programs currently accepting applications.</h2></div>
+    <div class="grid grid-3" id="internshipsList">
+      <p id="loadingInternships">Loading internships...</p>
+    </div></div></section>
+
+    <section class="section"><div class="container grid grid-3"><article class="glass-card"><div class="card-body"><div class="eyebrow">Weekly Challenges</div><h3>Ship one challenge every week.</h3><p class="muted">Code UI cards, automation scripts, AI prompts, security tasks, and data dashboards with leaderboard recognition.</p></div></article><article class="glass-card"><div class="card-body"><div class="eyebrow">Resources</div><h3>Curated resources, not noise.</h3><p class="muted">Starter templates, roadmaps, cheat sheets, recorded sessions, and project checklists in one place.</p></div></article><article class="glass-card"><div class="card-body"><div class="eyebrow">Student Projects</div><h3>Learn by building publicly.</h3><p class="muted">Create portfolio-ready projects reviewed by mentors and showcased in the Hyna Internship Portal community.</p></div></article></div></section>
+
+    <section class="section"><div class="container"><div class="section-head"><div class="eyebrow">FAQ</div><h2>Common questions, answered.</h2></div><div class="grid grid-2">
+      <div class="faq-item glass-card"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Do I need prior coding experience?<span>+</span></div><div class="faq-answer">No. Hyna Internship Portal tracks start from fundamentals and gradually move into projects, hackathons, and placement readiness.</div></div>
+      <div class="faq-item glass-card"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Are courses project based?<span>+</span></div><div class="faq-answer">Yes. Every track includes mini projects, weekly challenges, reviews, and portfolio outcomes.</div></div>
+      <div class="faq-item glass-card"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Will mentors guide me?<span>+</span></div><div class="faq-answer">Mentors help with direction, review, debugging mindset, and interview preparation.</div></div>
+      <div class="faq-item glass-card"><div class="faq-question" role="button" tabindex="0" aria-expanded="false">Can I join multiple tracks?<span>+</span></div><div class="faq-answer">Yes, but we recommend one primary track and one supporting track for consistent progress.</div></div>
+    </div></div></section>
+
+    <section class="section" id="join"><div class="container"><div class="cta-band"><div class="eyebrow">Start Your Journey</div><h2>Ready to build real skills?</h2><p>Apply for an internship and work on impactful projects with expert mentorship.</p><a class="btn btn-primary" href="apply.html">Apply Now</a></div></div></section>
+  </main>
+
+  <!-- Dynamic Video Modal for Course Enrollment -->
+  <div class="video-modal-overlay" id="courseVideoModal" aria-hidden="true" role="dialog" aria-label="Course Video Player">
+    <div class="video-modal">
+      <button class="video-modal-close" id="closeCourseVideo" aria-label="Close video player">&times;</button>
+      <div class="video-modal-header">
+        <span class="tag" id="videoModalTag">Course Track</span>
+        <h3 id="videoModalTitle">Course Session &amp; Overview</h3>
+      </div>
+      <div class="video-wrapper">
+        <iframe id="courseVideoIframe" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video-modal-actions">
+        <a href="register.html" class="btn btn-primary">Complete Full Registration →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="footer-brand-row"><img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal logo" loading="lazy"><div class="logo-text"><span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span></div></div><p class="footer-tagline">India's student innovation network for learning, mentorship, and real-world building.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="internships.html">Internships</a></li><li><a href="about.html">About</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="internships.html">All Internships</a></li><li><a href="apply.html">Apply Now</a></li><li><a href="application-status.html">Track Application</a></li></ul></div><div class="footer-col"><h4>Connect</h4><ul><li><a href="contact.html">Contact Us</a></li></ul><div class="footer-social"><a href="#" aria-label="Discord">D</a><a href="#" aria-label="Instagram">I</a><a href="#" aria-label="LinkedIn">in</a></div></div></div><div class="footer-bottom"><span>© 2026 Hyna Internship Portal. All rights reserved.</span><span>Build • Learn • Innovate</span></div></div></footer>
+  <script src="internships.js" defer></script>
+</body>
+</html>

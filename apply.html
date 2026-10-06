@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join Hygenz LearnHub</title>
+<title>Apply for Internship | Hyna</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -355,20 +355,25 @@ flex-direction:column;
 <div class="container">
 
 <div class="title">
-
-<small>Hygenz LearnHub</small>
-
-<h1>Become a Hygenz LearnHub Learner</h1>
-
+<small>Hyna Internships</small>
+<h1>Apply for an Internship</h1>
 <p>
-Join India's builder-first student community.
-Learn skills, build projects, attend hackathons,
-connect with mentors and grow together.
+Join our team and build real-world experience. Fill out the application form below to start your journey.
 </p>
-
 </div>
 
 <form id="registerForm">
+<div class="section">
+<h2>🏢 Internship Selection</h2>
+<div class="grid">
+<div class="input-group">
+<label>Selected Internship Program</label>
+<select id="programId" required>
+<option value="">Loading programs...</option>
+</select>
+</div>
+</div>
+</div>
 
 <div class="section">
 
@@ -519,11 +524,19 @@ placeholder="HTML, CSS, JavaScript, Python...">
 </div>
 
 <div class="section">
-
-<h2>🎯 Why do you want to Join Hygenz LearnHub?</h2>
-
-<textarea id="about" placeholder="Tell us about yourself..."></textarea>
-
+<h2>🎯 Motivation & Goals</h2>
+<div class="input-group" style="margin-bottom:15px;">
+<label>Why do you want this internship?</label>
+<textarea id="about" placeholder="Tell us about your motivation..."></textarea>
+</div>
+<div class="input-group" style="margin-bottom:15px;">
+<label>What do you want to learn?</label>
+<textarea id="learningGoals" placeholder="Your learning goals..."></textarea>
+</div>
+<div class="input-group">
+<label>Describe a project you have worked on (if any)</label>
+<textarea id="projectDesc" placeholder="Project details..."></textarea>
+</div>
 </div>
 
 <div class="section">
@@ -554,23 +567,16 @@ placeholder="HTML, CSS, JavaScript, Python...">
 </div>
 
 <div class="section">
-
 <label style="display:flex;align-items:center;gap:15px;">
-
 <input type="checkbox" id="agree" required>
-
-I agree to the Hygenz LearnHub Community Guidelines.
-
+I agree to the Terms and Conditions of the internship application.
 </label>
-
 </div>
 
 <div class="submit">
 
 <button>
-
-Become a Hygenz LearnHub Learner →
-
+Submit Application →
 </button>
 
 </div>
@@ -583,15 +589,16 @@ Become a Hygenz LearnHub Learner →
 <div class="modal-overlay" id="successModal">
   <div class="modal">
     <button class="close-x" id="modalClose">&times;</button>
-    <h2>Thankyou for your registeration</h2>
-    <p class="sub">Your registration details are shown below.</p>
+    <h2>Application Submitted!</h2>
+    <p class="sub">Please save your Application ID to track your status.</p>
     <div id="registrationDetails"></div>
     <div class="modal-actions">
-      <button id="viewAnotherBtn">View Another</button>
+      <a href="application-status.html" class="btn" style="padding:14px 35px; border-radius:50px; background:#fff; color:#000; text-decoration:none; font-weight:600;">Track Status</a>
     </div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="register.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="apply.js"></script>
 </body>
 </html>

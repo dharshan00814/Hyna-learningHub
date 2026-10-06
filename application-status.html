@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Track your internship application status.">
+  <title>Track Application | Hyna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="faq.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <style>
+    .status-container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      text-align: center;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .input-group input {
+      padding: 14px;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+    }
+    .input-group input:focus {
+      border-color: white;
+      outline: none;
+    }
+    .status-result {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 12px;
+      text-align: left;
+    }
+    .status-timeline {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .timeline-step {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: var(--muted);
+    }
+    .timeline-step.active {
+      color: white;
+      font-weight: bold;
+    }
+    .timeline-step.completed {
+      color: var(--success, #22c55e);
+    }
+    .timeline-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+    .timeline-step.completed .timeline-icon {
+      background: currentColor;
+      color: #000;
+    }
+    .timeline-line {
+      width: 2px;
+      height: 20px;
+      background: rgba(255,255,255,0.2);
+      margin-left: 11px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-bg"></div><div class="stars"></div><div class="grid-overlay"></div>
+
+  <header class="header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a href="index.html" class="nav-logo" aria-label="Hyna Internship Portal home">
+        <img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal Logo" loading="eager">
+        <div class="logo-text"><span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
+    </nav>
+  </header>
+
+  <main style="padding-top: 80px;">
+    <section class="section">
+      <div class="container">
+        <div class="status-container">
+          <div class="eyebrow" style="justify-content:center; margin-bottom:10px;">Application Status</div>
+          <h2 style="font-size:2rem; margin-bottom:10px;">Track Your Progress</h2>
+          <p class="muted" style="margin-bottom:30px;">Enter your Application ID to view your current status.</p>
+          
+          <form id="trackForm">
+            <div class="input-group">
+              <label for="appId">Application ID</label>
+              <input type="text" id="appId" placeholder="e.g. HYN-INT-APP-2026-XXXXXX" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Check Status</button>
+          </form>
+
+          <div id="statusResult" class="status-result" style="display:none;">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="footer-brand-row"><img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal logo" loading="lazy"><div class="logo-text"><span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span></div></div><p class="footer-tagline">India's student innovation network for learning, mentorship, and real-world building.</p></div><div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="internships.html">Internships</a></li><li><a href="about.html">About</a></li><li><a href="how-it-works.html">How It Works</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer-col"><h4>Programs</h4><ul><li><a href="internships.html">All Internships</a></li><li><a href="apply.html">Apply Now</a></li><li><a href="application-status.html">Track Application</a></li></ul></div><div class="footer-col"><h4>Connect</h4><ul><li><a href="contact.html">Contact Us</a></li></ul></div></div><div class="footer-bottom"><span>© 2026 Hyna Internship Portal. All rights reserved.</span></div></div></footer>
+  
+  <script src="application-status.js"></script>
+</body>
+</html>

@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hygenz LearnHub</title>
+  <title>Internship Programs | Hyna</title>
   <meta name="description"
-    content="Hygenz LearnHub, powered by Hygenz LearnHub — India's student innovation network for learning, mentorship, and real-world building.">
+    content="Start your internship journey. Get hands-on experience, work on real-world projects, and build skills that prepare you for your next opportunity.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1401,6 +1401,64 @@
         text-align: center;
       }
     }
+    /* ---------- Programs Grid ---------- */
+    .programs-section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .program-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .program-card:hover {
+      background: var(--card-hover);
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .program-icon {
+      width: 54px;
+      height: 54px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      color: #ffffff;
+      font-size: 24px;
+    }
+    .program-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    .program-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .program-card .btn {
+      align-self: flex-start;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
@@ -1411,39 +1469,38 @@
 
       <!-- Logo -->
       <a href="#home" class="nav-logo">
-        <img class="logo-img" src="./hyna-logo-new.png" alt="Hygenz LearnHub Logo">
+        <img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal Logo">
         <div class="logo-text">
-          <span class="logo-main"><span class="logo-highlight">Hygenz</span> LearnHub</span>
+          <span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span>
           
         </div>
       </a>
 
       <!-- Center nav links in their own inner pill -->
       <ul class="nav-links">
-        <li><a href="#home" class="nav-active">Home</a></li>
-        <li><a href="#about">Why Us</a></li>
-        <li><a href="./learning.html">Learning</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html" class="nav-active">Home</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
 
       <!-- Right actions -->
-      <a href="https://chat.whatsapp.com/BY5mZEFs1CcBheZBCeN2hA" class="nav-cta">Join Us</a>
+      <a href="apply.html" class="nav-cta">Apply Now</a>
       <button class="mobile-toggle" id="navMobileToggle" aria-label="Open menu"><span></span></button>
 
     </nav>
   </header>
 
   <div class="mobile-menu" id="mobile-menu">
-    <a href="#home">Home</a>
-    <a href="#about">Why Us</a>
-    <a href="#learning">Learning</a>
-    <a href="#events">Events</a>
-    <a href="#community">Community</a>
-    <a href="#contact">Contact</a>
-    <a href="https://chat.whatsapp.com/BY5mZEFs1CcBheZBCeN2hA" class="btn btn-primary" style="margin-top:20px;">Join our
-      Community</a>
+    <a href="index.html">Home</a>
+    <a href="internships.html">Internships</a>
+    <a href="about.html">About</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="apply.html" class="btn btn-primary" style="margin-top:20px;">Apply Now</a>
   </div>
 
   <section class="hero" id="home">
@@ -1453,18 +1510,16 @@
 
       
       <h1 id="hero-heading">
-        <span class="word"><span class="hero-tagline">Together We Learn. Together We Lead.</span></span>
-        <span class="word small"><span>community driven by students, for students</span></span>
-
+        <span class="word"><span class="hero-tagline">Build Real Skills.</span></span>
+        <span class="word"><span class="hero-tagline">Gain Real Experience.</span></span>
+        <span class="word small"><span>Start Your Internship Journey.</span></span>
       </h1>
       <p class="sub">
-        Hygenz LearnHub brings students, mentors, and builders into one network —
-        real projects, real mentorship, and a straight line from your first line of code
-        to your first offer.
+        Get hands-on experience, work on real-world projects, learn from mentors, and build skills that prepare you for your next opportunity.
       </p>
       <div class="hero-ctas">
-        <a href="register.html" class="btn btn-primary">Join our Community</a>
-        <a href="learning.html" class="btn btn-ghost">Explore Programs</a>
+        <a href="internships.html" class="btn btn-primary">Explore Internships</a>
+        <a href="apply.html" class="btn btn-ghost">Apply Now</a>
       </div>
 
       <div class="hero-stats">
@@ -1488,23 +1543,77 @@
     </div>
   </section>
 
-  <section class="bootcamp" id="bootcamp">
+  <section class="programs-section" id="internships">
     <div class="container">
-      <div class="bootcamp-card">
-        <div class="eyebrow">
-          <span>Boot Camp</span>
+      <div class="section-head" style="text-align: center; max-width: 600px; margin: 0 auto 40px auto;">
+        <div class="eyebrow" style="justify-content: center;">Open Positions</div>
+        <h2>Available Internships</h2>
+        <p>Choose your domain and apply to start building real-world projects with our team.</p>
+      </div>
+      
+      <div class="programs-grid">
+        <!-- Fullstack -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Full Stack Development</h3>
+          <p>Master both frontend and backend technologies to build complete web applications.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
         </div>
-        <h2>Weekly Boot Camp-01</h2>
-        <p class="bootcamp-sub">Hands-on training every week.</p>
-        <p class="bootcamp-tagline">Real projects. Real skills.</p>
-
-        <div class="bootcamp-img-wrap">
-          <img src="./image.png" alt="Boot Camp" loading="lazy" />
+        <!-- Web Development -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3>Web Development</h3>
+          <p>Build responsive, modern, and highly interactive websites.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
         </div>
-
-        <div class="bootcamp-ctas">
-          <a href="register.html" class="btn btn-primary">Register Now</a>
-          <a href="register.html" class="btn btn-ghost">View Syllabus</a>
+        <!-- DevOps -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-server"></i></div>
+          <h3>DevOps</h3>
+          <p>Learn CI/CD pipelines, cloud infrastructure, and deployment automation.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
+        </div>
+        <!-- Data Analyst -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-chart-simple"></i></div>
+          <h3>Data Analyst</h3>
+          <p>Analyze data sets, build dashboards, and discover actionable insights.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
+        </div>
+        <!-- Motion Graphics -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-clapperboard"></i></div>
+          <h3>Motion Graphics</h3>
+          <p>Create stunning animations and visual effects for digital products.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
+        </div>
+        <!-- Cybersecurity -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Cybersecurity</h3>
+          <p>Protect networks, learn ethical hacking, and secure applications.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
+        </div>
+        <!-- Frontend -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-brands fa-html5"></i></div>
+          <h3>Frontend Development</h3>
+          <p>Craft beautiful user interfaces using the latest web technologies.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
+        </div>
+        <!-- Backend -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-database"></i></div>
+          <h3>Backend Development</h3>
+          <p>Build robust APIs, manage databases, and handle server logic.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
+        </div>
+        <!-- App Development -->
+        <div class="program-card">
+          <div class="program-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>App Development</h3>
+          <p>Develop native or cross-platform mobile applications for iOS and Android.</p>
+          <a href="apply.html" class="btn btn-primary">Apply Now</a>
         </div>
       </div>
     </div>
@@ -1513,8 +1622,8 @@
   <section class="why" id="about">
     <div class="container">
       <div class="section-head">
-        <h2>One community, every stage of the climb.</h2>
-        <p>From your first workshop to your first startup — the network compounds with you.</p>
+        <h2>Start your career with us.</h2>
+        <p>From your first project to your first job — we help you build the experience you need.</p>
       </div>
 
       <div class="why-grid" id="why-grid"></div>
@@ -1594,31 +1703,31 @@
     // ---------- Why Join cards ----------
     const whyItems = [
       {
-        title: 'Learn New Skills', desc: 'Structured tracks across web, AI, cloud, and design — taught by people building it right now.',
+        title: 'Real World Experience', desc: 'Work on actual startup projects that make a real impact — not just tutorials.',
         icon: '<path d="M12 3v18M4 8l8-5 8 5M4 8v9l8 5M4 8l8 5m8-5v9l-8 5m8-14l-8 5"/>'
       },
       {
-        title: 'Hands-on Projects', desc: 'Ship real products with a team, a repo, and a deadline — not another tutorial.',
+        title: 'Live Projects', desc: 'Ship real products with a team, a repo, and a deadline.',
         icon: '<path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3 3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.77z"/>'
       },
       {
-        title: 'Industry Mentors', desc: '1:1 sessions with engineers, designers, and founders currently working at the companies you want to join.',
+        title: 'Learn from Experts', desc: '1:1 sessions with engineers, designers, and founders currently working in the industry.',
         icon: '<circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0116 0v1"/>'
       },
       {
-        title: 'Hackathons', desc: 'Weekend-long builds, live judging, and prizes that actually go on your resume.',
+        title: 'Resume Building', desc: 'Get a certificate and add actual work experience that will stand out on your resume.',
         icon: '<path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/>'
       },
       {
-        title: 'Internships', desc: 'Direct pipelines into partner startups and companies actively hiring student talent.',
+        title: 'Fast-tracked Hiring', desc: 'Direct pipelines into partner startups and companies actively hiring student talent.',
         icon: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>'
       },
       {
-        title: 'Startup Exposure', desc: 'Pitch nights, founder AMAs, and a track for turning a class project into a company.',
+        title: 'Startup Culture', desc: 'Experience the fast-paced environment of a growing startup from the inside.',
         icon: '<path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/>'
       },
       {
-        title: 'Networking', desc: 'A directory of thousands of peers, alumni, and mentors — searchable by skill and city.',
+        title: 'Build Connections', desc: 'Network with peers, alumni, and mentors — searchable by skill and city.',
         icon: '<circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M6 9v3a3 3 0 003 3h1m5-9v3a3 3 0 01-3 3h-1"/>'
       },
       {
@@ -1870,9 +1979,9 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#home" class="nav-logo" style="display: inline-flex; align-items: center; gap: 0.65rem;">
-          <img class="logo-img" src="./hyna-logo-new.png" alt="Hygenz LearnHub Logo">
+          <img class="logo-img" src="./hyna-logo-new.png" alt="Hyna Internship Portal Logo">
           <div class="logo-text" style="display: flex; flex-direction: column; line-height: 1.1;">
-            <span class="logo-main"><span class="logo-highlight">Hygenz</span> LearnHub</span>
+            <span class="logo-main"><span class="logo-highlight">Hyna</span> Internship Portal</span>
            
           </div>
         </a>
@@ -1883,22 +1992,21 @@
       <div class="footer-col">
         <h4>Navigate</h4>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="why-choose.html">Why Us</a></li>
-          <li><a href="learning.html">Learning</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="community.html">Community</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="internships.html">Internships</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Programs</h4>
         <ul>
-          <li><a href="learning.html">Skill Tracks</a></li>
-          <li><a href="community.html">Mentorship</a></li>
-          <li><a href="events.html">Workshops</a></li>
-          <li><a href="learning.html">Internships</a></li>
+          <li><a href="internships.html">All Internships</a></li>
+          <li><a href="apply.html">Apply Now</a></li>
+          <li><a href="application-status.html">Track Application</a></li>
         </ul>
       </div>
 
@@ -1917,7 +2025,7 @@
 
     <div class="footer-bottom">
       <div class="footer-copy">
-        <span>&copy; 2026 Hygenz LearnHub.</span>
+        <span>&copy; 2026 Hyna Internship Portal.</span>
         <span class="dot"></span>
         <span>All rights reserved.</span>
       </div>
